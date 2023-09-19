@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 // Pipedrive API credentials
-const pipedriveApiKey = 'process.env.PIPEDRIVE_API_TOKE';
+const pipedriveApiKey = 'process.env.PIPEDRIVE_API_TOKEN';
 const pipedriveApiUrl = 'https://Rian-Sandbox.pipedrive.com/v1';
 
 // HubSpot API credentials
