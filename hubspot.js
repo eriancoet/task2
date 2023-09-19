@@ -1,12 +1,12 @@
 const axios = require('axios');
 
 // Pipedrive API credentials
-const pipedriveApiKey = process.env.PIPEDRIVE_API_KEY;
-const pipedriveApiUrl = 'https://Rian-Sandbox.pipedrive.com/v1/persons?api_token=744cc977d27294cfd65794cffe6a7c7238163209';
+const pipedriveApiKey = process.env.PIPEDRIVE_API_TOKEN;
+const pipedriveApiUrl = 'https://Rian-Sandbox.pipedrive.com/v1/persons';
 
 // HubSpot API credentials
 const hubspotApiKey = process.env.HUBSPOT_API_KEY;
-const hubspotApiUrl = 'https://app.hubspot.com/contacts/8913181/objects/0-1/views/all/list';
+const hubspotApiUrl = 'https://api.hubapi.com/';
 
 // Function to get contacts from Pipedrive
 async function getPipedriveContacts() {
@@ -76,9 +76,26 @@ async function migrateContacts() {
           },
           {
             property: 'added',
-            value: pipedriveContact. add_time,
+            value: pipedriveContact.add_time,
           },
-
+          {
+            property: 'deals',
+            value: pipedriveContact.contact.closed_deals_count,
+          },
+          {
+            property: 'companyID',
+            value: pipedriveContact.contact.company_id,
+          },
+          {
+            property: 'address',
+            value: pipedriveContact.org_id.address,
+          },
+          {
+            property: 'followers',
+            value: pipedriveContact.contact.followers_count,
+          }
+         
+          
          
           // Add more properties as needed
         ],
